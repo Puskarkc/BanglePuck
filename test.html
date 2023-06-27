@@ -15,14 +15,27 @@
       document.getElementById("result2").innerHTML = t;
     });
   }
-
-  // Invoke getTemperature() when the page loads
+function getStepCount() {
+    UART.eval('E.Bangle.getStepCount()', function(t) {
+      document.getElementById("result3").innerHTML = t;
+    });
+  }
+   function getTemperature3() {
+    UART.eval('Bangle.getHealthStatus('last')', function(t) {
+      document.getElementById("result4").innerHTML = t;
+    });
+  }
+  
 
   </script>
   
   <button onclick="getBattery()">Get Battery</button> Battery
   <span id="result1"></span>
-  <button onclick="getTemperature()">Get Temperature</button> Battery
+  <button onclick="getTemperature()">Get Temperature</button> Temperature
   <span id="result2"></span>
+  <button onclick="getStepCount()">Get StepCount</button> StepCount
+  <span id="result3"></span>
+  <button onclick="getStepCount()">Get Health</button> Health
+  <span id="result4"></span>
  </body>
 </html>
