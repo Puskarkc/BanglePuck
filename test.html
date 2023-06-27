@@ -5,7 +5,7 @@
   <script src="https://www.espruino.com/js/uart.js"></script>
   <script>
   function getTemperature() {
-    UART.eval('E.getTemperature()', function(t) {
+    UART.eval('E.getBattery()', function(t) {
       document.getElementById("result").innerHTML = t;
     });
   }
@@ -13,8 +13,8 @@
   // Invoke getTemperature() when the page loads
 
   </script>
-  getTemperature();
-  <button onclick="getTemperature()">Get Temperature33</button>
+  
+  <button onclick="getTemperature()">Get Battery</button>
   <span id="result"></span>
  </body>
 </html>
