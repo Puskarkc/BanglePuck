@@ -16,7 +16,7 @@
     });
   }
 function getStepCount() {
-    UART.eval('E.Bangle.getStepCount()', function(t) {
+    UART.eval('Bangle.getStepCount()', function(t) {
       document.getElementById("result3").innerHTML = t;
     });
   }
