@@ -15,8 +15,8 @@
       document.getElementById("result2").innerHTML = t;
     });
   }
-function getStepCount() {
-    UART.eval('Bangle.getStepCount()', function(t) {
+function getAccel() {
+    UART.eval('Microbit.accel()', function(t) {
       document.getElementById("result3").innerHTML = t;
     });
   }
@@ -33,7 +33,7 @@ function getStepCount() {
   <span id="result1"></span>
   <button onclick="getTemperature()">Get Temperature</button> Temperature
   <span id="result2"></span>
-  <button onclick="getStepCount()">Get StepCount</button> StepCount
+  <button onclick="getAccel()">Get Accelero</button> Accelero
   <span id="result3"></span>
   <button onclick="getHealthStatus()">Get Health</button> Health
   <span id="result4"></span>
