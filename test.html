@@ -20,7 +20,7 @@ function getStepCount() {
       document.getElementById("result3").innerHTML = t;
     });
   }
-   function getTemperature3() {
+   function getHealthStatus() {
     UART.eval('Bangle.getHealthStatus('last')', function(t) {
       document.getElementById("result4").innerHTML = t;
     });
@@ -35,7 +35,7 @@ function getStepCount() {
   <span id="result2"></span>
   <button onclick="getStepCount()">Get StepCount</button> StepCount
   <span id="result3"></span>
-  <button onclick="getStepCount()">Get Health</button> Health
+  <button onclick="getHealthStatus()">Get Health</button> Health
   <span id="result4"></span>
  </body>
 </html>
