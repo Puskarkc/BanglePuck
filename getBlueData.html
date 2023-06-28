@@ -1,3 +1,6 @@
+<html>
+  <body>
+    <p>
 import asyncio
 import array
 from bleak import BleakClient
@@ -28,7 +31,9 @@ async def run(address, loop):
         print("Waiting for data")
         
         await asyncio.sleep(1.0)  # wait for a response
-       
+    </p>
+  </body>
+</html>
         print("Done!")
 
 loop = asyncio.get_event_loop()
