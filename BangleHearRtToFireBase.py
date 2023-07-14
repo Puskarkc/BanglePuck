@@ -26,10 +26,10 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 database = firebase.database()
 ###------------------------- Above code is required for firebase connection
 
-### Bangle.Js Watch Address. The below 3 lines is mandatory code which is jus the address of the WATCH
+### Bangle.Js Watch Address. The below 3 lines is mandatory code which is just the address of the WATCH
 address = "E43D4199-EB93-DBE8-4565-0E8F0C3202A1"
-UUID_NORDIC_TX = "6e400002-b5a3-f393-e0a9-e50e24dcca9e"
-UUID_NORDIC_RX = "6e400003-b5a3-f393-e0a9-e50e24dcca9e"
+UUID_NORDIC_TX = "6e400002-b5a3-f393-e0a9-e50e24dcca9e" ### Bangle Code to Transmit/Push Data
+UUID_NORDIC_RX = "6e400003-b5a3-f393-e0a9-e50e24dcca9e" ### Banlge code or Unique ID to Receive Data.
 
 ###  b"var currentDate = new Date(); print('D'+currentDate.toISOString());"
 #### Using Javascript to pass command to Bangle.Js
@@ -44,11 +44,7 @@ command = (b"\x03\x10 reset()"
           b"print(temp + d.join());})}, 1000);"
           b"\n\x10print( 'Fresh Data Start')\n")
 
-
-
-### The Above code, is the javascript code, Still one problem remeaninf.
-### This codes gives Temperature but for Heart Rate Monitor
-
+### Variables declaration
 SkinTemperature = None
 HeartData = None
 sample = 1
@@ -107,7 +103,7 @@ async def run(address, loop):
         
         print("Writing command")
         c = command
-        while len(c) > 0: ### sending 11 bytes as Watch only transmit 20 bytes
+        while len(c) > 0: ### sending 2 bytes as Watch only transmit 20 bytes
             await client.write_gatt_char(UUID_NORDIC_TX, bytearray(c[0:2]), True)
             c = c[2:]
         print("Waiting for data")
